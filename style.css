@@ -317,3 +317,7 @@ strong, b, .ev-invitado, .ev-hora, .ev-title, .prog-intro, .cocktail-sub, .cockt
 .ev-body p:has(> .sub-name:only-child) { margin: 1.4rem 0 0.2rem; }
 @media (min-width: 760px) { .evento.e24 figure { width: 42% !important; } }
 .artcut-mini.rml-mini { width: 50px; height: 50px; border-radius: 50%; }
+.live-foot { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; margin-top: 0.6rem; }
+.content .live-note { font-size: 0.9rem; font-style: italic; color: var(--muted); margin: 0 !important; max-width: 36rem; }
+.live-foot .live-open { margin: 0 !important; flex: none; white-space: nowrap; }
+@media (max-width: 640px) { .live-foot { flex-direction: column; gap: 0.5rem; } .live-foot .live-open { white-space: normal; } }

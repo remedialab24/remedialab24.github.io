@@ -316,3 +316,4 @@ strong, b, .ev-invitado, .ev-hora, .ev-title, .prog-intro, .cocktail-sub, .cockt
 .sub-name { font-weight: 700; font-style: italic; -webkit-text-stroke: 0.35px currentColor; }
 .ev-body p:has(> .sub-name:only-child) { margin: 1.4rem 0 0.2rem; }
 @media (min-width: 760px) { .evento.e24 figure { width: 42% !important; } }
+.artcut-mini.rml-mini { width: 50px; height: 50px; border-radius: 50%; }

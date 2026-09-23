@@ -321,3 +321,7 @@ strong, b, .ev-invitado, .ev-hora, .ev-title, .prog-intro, .cocktail-sub, .cockt
 .content .live-note { font-size: 0.9rem; font-style: italic; color: var(--muted); margin: 0 !important; max-width: 36rem; }
 .live-foot .live-open { margin: 0 !important; flex: none; white-space: nowrap; }
 @media (max-width: 640px) { .live-foot { flex-direction: column; gap: 0.5rem; } .live-foot .live-open { white-space: normal; } }
+/* nota + enlace juntos y centrados */
+.live-foot { justify-content: center; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; text-align: center; margin-top: 0.9rem; }
+.content .live-note { max-width: none; }
+@media (max-width: 640px) { .live-foot { flex-direction: column; align-items: center; gap: 0.3rem; } }

@@ -325,3 +325,14 @@ strong, b, .ev-invitado, .ev-hora, .ev-title, .prog-intro, .cocktail-sub, .cockt
 .live-foot { justify-content: center; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; text-align: center; margin-top: 0.9rem; }
 .content .live-note { max-width: none; }
 @media (max-width: 640px) { .live-foot { flex-direction: column; align-items: center; gap: 0.3rem; } }
+
+/* Celular: la franja superior no se monta con el botón Menú */
+@media (max-width: 1149px) {
+  .bar { gap: 0.75rem; }
+  .brand { flex: 1 1 auto; min-width: 0; gap: 0.7rem; }
+  .brand > span { min-width: 0; }
+  .brand img { width: 52px; height: 52px; flex: none; }
+  .brand strong { font-size: clamp(1.1rem, 5.2vw, 1.6rem); }
+  .brand small { font-size: clamp(0.72rem, 3.3vw, 0.95rem); }
+  .menu-toggle { flex: none; }
+}

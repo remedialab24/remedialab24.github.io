@@ -1,0 +1,14 @@
+RE:MEDIACIONES — SITIO WEB
+==========================
+
+Para ver el sitio en el computador, abre index.html con doble clic.
+
+Imágenes: están en la carpeta img, ya reducidas para web.
+Para cambiar una foto, reemplaza el archivo manteniendo el MISMO nombre.
+
+Formularios (contacto y newsletter): los mensajes llegan a remedialab24@gmail.com
+a través de FormSubmit, que es gratis. La primera vez que alguien envíe un formulario,
+llegará un correo de FormSubmit pidiendo activarlo: hay que hacer clic en "Activate".
+
+Para publicar: sube TODO el contenido de esta carpeta (los .html, style.css y la carpeta img)
+al repositorio remedialab24.github.io en GitHub.

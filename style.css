@@ -1,0 +1,318 @@
+/* Re:Mediaciones — estilo basado en el sitio original de Wix
+   Fuentes originales: Questrial (texto y menú) y Work Sans (título). */
+:root {
+  --bg: #ffffff;
+  --ink: #000000;
+  --muted: #555555;
+  --line: #d6d6d6;
+  --header: #000000;
+  --lime: #c3ff5b;          /* color del menú activo en el sitio original */
+  --button: #373b4d;        /* color del botón "Enviar" original */
+  --footbar: #212121;
+  --measure: 46rem;
+  --text: "Questrial", "Helvetica Neue", Arial, sans-serif;
+  --title: "Work Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1.125rem/1.45 var(--text);
+  overflow-wrap: break-word;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-underline-offset: 0.15em; }
+a:hover { opacity: 0.75; }
+
+/* ---------- Franja superior negra ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--header); color: #fff;
+}
+.bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+.brand { display: flex; align-items: center; gap: 0.9rem; color: #fff; text-decoration: none; }
+.brand:hover { opacity: 1; }
+.brand img { width: 64px; height: 64px; border-radius: 50%; }
+.brand strong { display: block; font: 700 1.45rem/1.1 var(--title); }
+.brand small { display: block; font: 400 0.95rem/1.3 var(--text); margin-top: 0.25rem; }
+
+.menu-toggle {
+  font: 400 1rem var(--text);
+  background: transparent; color: #fff;
+  border: 1px solid #fff; border-radius: 4px; padding: 0.45rem 0.9rem; cursor: pointer;
+}
+nav ul { list-style: none; margin: 0; padding: 0; }
+nav a { text-decoration: none; color: #fff; }
+nav a.active, nav a[aria-current="page"] { color: var(--lime); }
+nav .ig a { display: inline-flex; }
+.ig-icon { width: 28px; height: 28px; display: block; }
+.foot-bar .ig-icon { width: 26px; height: 26px; }
+
+/* Celular: menú desplegable */
+#nav { display: none; border-top: 1px solid #333; padding: 0.5rem 1rem 1rem; }
+.nav-open #nav { display: block; }
+#nav > ul > li > a { display: block; padding: 0.55rem 0; font-size: 1.1rem; }
+#nav .sub { padding-left: 1rem; border-left: 1px solid #444; margin-bottom: 0.4rem; }
+#nav .sub a { display: block; padding: 0.35rem 0; color: #cfcfcf; }
+#nav .sub a[aria-current="page"] { color: var(--lime); }
+
+/* Pantallas grandes: franja alta con menú a la derecha */
+@media (min-width: 1150px) {
+  .site-header { display: flex; align-items: center; justify-content: space-between; padding: 0 2rem 0 1.25rem; min-height: 120px; }
+  .bar { padding: 1rem 0; }
+  .brand img { width: 92px; height: 92px; }
+  .brand strong { font-size: 1.9rem; }
+  .brand small { font-size: 1.2rem; }
+  .menu-toggle { display: none; }
+  #nav, .nav-open #nav { display: block; border: 0; padding: 0; }
+  #nav > ul { display: flex; align-items: center; gap: 1.6rem; }
+  #nav > ul > li > a { padding: 1rem 0; font-size: 1rem; }
+  .has-sub { position: relative; }
+  #nav .sub {
+    display: none; position: absolute; top: 100%; left: -1rem; min-width: 12rem;
+    background: #000; border: 0; padding: 0.5rem 1rem 0.75rem; margin: 0;
+  }
+  #nav .has-sub:hover .sub, #nav .has-sub:focus-within .sub { display: block; }
+}
+
+/* ---------- Portada en tres partes ---------- */
+.home-main { padding: 0; }
+.home {
+  display: grid; gap: 2.5rem;
+  padding: 2.5rem 1.25rem 3rem;
+  grid-template-areas: "left" "right" "text";
+}
+.home-left { grid-area: left; text-align: center; }
+.home-text { grid-area: text; }
+.home-right { grid-area: right; }
+
+.home-left h1 {
+  font: italic 700 clamp(2.6rem, 8vw, 4.2rem)/1.1 var(--text);
+  /* sombreado RGB del título original de Wix */
+  text-shadow: 3px 3px 0 rgba(10, 189, 240, 0.3), -3px -3px 0 rgba(254, 1, 1, 0.3);
+  margin: 0 0 1.4rem;
+}
+.title-rule { border: 0; border-top: 1.5px solid #000; width: 90%; margin: 0 auto 1.6rem; }
+.home-left .date { font: italic 700 clamp(1.8rem, 5vw, 2.8rem)/1.25 var(--text); margin: 0 0 2.4rem; }
+.home-left .lugar { font-size: 1.4rem; line-height: 1.7; margin: 0 0 3rem; }
+.home-left .lugar span { font-size: 1.7rem; display: inline-block; margin-bottom: 0.4rem; }
+.home-logos { display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; }
+.home-logos img { height: 170px; width: auto; }
+
+.home-text p { margin: 0 0 1.1em; }
+.home-text p.center { text-align: center; }
+@media (min-width: 760px) { .home-text p:not(.center) { text-align: justify; hyphens: auto; } }
+.home-right figure { margin: 0 0 1.5rem; }
+.home-right img { width: 100%; }
+
+/* Tablet: izquierda + afiche arriba, texto abajo */
+@media (min-width: 760px) {
+  .home { grid-template-columns: 1fr 1fr; grid-template-areas: "left right" "text text"; padding: 3rem 2rem; }
+  .home-text { max-width: var(--measure); margin: 0 auto; }
+}
+/* Escritorio: las tres columnas como en el original */
+@media (min-width: 1150px) {
+  .home {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1fr);
+    grid-template-areas: "left text right";
+    gap: 3.5rem; padding: 3.5rem 2.5rem; align-items: start;
+  }
+  .home-left { padding-top: 1.5rem; }
+  .home-left h1 { font-size: clamp(2.8rem, 3.9vw, 4.8rem); margin-bottom: 1.8rem; }
+  .home-left .date { font-size: clamp(1.9rem, 2.5vw, 3rem); margin-bottom: 3.2rem; }
+  .home-left .lugar { font-size: clamp(1.3rem, 1.45vw, 1.6rem); margin-bottom: 4rem; }
+  .home-left .lugar span { font-size: clamp(1.6rem, 1.8vw, 2rem); }
+  .home-logos img { height: clamp(150px, 13vw, 210px); }
+}
+
+.map { padding: 0 1.25rem 3rem; }
+.map iframe { width: 100%; height: 380px; border: 0; display: block; }
+@media (min-width: 760px) { .map { padding: 0 2.5rem 3.5rem; } }
+
+/* ---------- Páginas interiores ---------- */
+main { padding: 2.5rem 1.25rem 3.5rem; }
+.content { max-width: var(--measure); margin: 0 auto; }
+.content h1, .content h2, .content h3 { font-family: var(--text); line-height: 1.15; }
+.content h1 { font: italic 700 clamp(2.2rem, 6vw, 3.5rem)/1.1 var(--text); margin: 0.2em 0 0.6em; }
+.content h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin: 2em 0 0.6em; }
+.content h3 { font-size: 1.5rem; font-weight: 700; margin: 2.4em 0 0.6em; }
+.content p { margin: 0 0 1.1em; }
+.content hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
+.content ul { padding-left: 1.2rem; }
+
+/* Programación */
+.content h3.day {
+  font-size: 1.3rem; font-style: italic;
+  border-top: 2px solid var(--ink); padding-top: 0.8rem; margin-top: 3rem;
+}
+.content .slot { border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+.content .slot p { margin: 0; }
+.content .slot strong:first-child { font-size: 1.1rem; }
+.content .slot figure.ph { margin: 0 0 0.9rem; }
+.content .slot figure.ph img { aspect-ratio: 4 / 3; object-fit: cover; }
+@media (min-width: 640px) {
+  .content .slot.has-img { display: grid; grid-template-columns: 12rem 1fr; gap: 1.25rem; align-items: start; }
+  .content .slot.has-img figure.ph { margin: 0.2rem 0 0; }
+}
+
+/* Botones */
+.cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+.btn, button[type="submit"] {
+  display: inline-block; font: 400 1rem var(--text); text-decoration: none;
+  background: var(--button); color: #fff;
+  border: 1px solid var(--button); border-radius: 0; padding: 0.65rem 1.4rem; cursor: pointer;
+}
+.btn.ghost { background: transparent; color: var(--button); }
+.btn:hover, button[type="submit"]:hover { opacity: 0.85; }
+
+/* Imágenes */
+figure.ph { margin: 1.5rem 0; }
+figure.ph img { width: 100%; }
+figure.ph .ph-label { display: none; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1rem; }
+.gallery figure.ph { margin: 0; }
+figure.ph.poster-single { max-width: 26rem; }
+figure.ph.logo-strip { max-width: 22rem; }
+
+/* ---------- Formularios ---------- */
+form { display: grid; gap: 0.9rem; font-family: var(--text); }
+label { display: grid; gap: 0.3rem; font-size: 0.95rem; font-style: italic; color: var(--muted); }
+input[type="text"], input[type="email"], textarea {
+  width: 100%; font: 1rem var(--text); color: var(--ink);
+  background: #fff; border: 1px solid #000; border-radius: 0; padding: 0.6rem 0.7rem;
+}
+input:focus, textarea:focus { outline: 2px solid var(--button); outline-offset: 1px; }
+label.check { display: flex; align-items: center; gap: 0.5rem; font-style: normal; }
+button[type="submit"] { justify-self: start; min-width: 8rem; }
+.hp { position: absolute; left: -9999px; }
+.newsletter { margin-top: 1.5rem; }
+
+/* ---------- Pie de página: logos (fondo blanco) + formulario al lado ---------- */
+.site-footer { background: #fff; color: var(--ink); border-top: 1px solid var(--line); }
+.foot-main {
+  display: grid; gap: 2.5rem; align-items: start;
+  max-width: 68rem; margin: 0 auto; padding: 3rem 1.25rem;
+}
+.allies { text-align: center; }
+.allies h2 { font: 400 1.7rem/1.2 var(--text); margin: 0 0 1.25rem; }
+.allies img { margin: 0 auto; max-width: 34rem; width: 100%; }
+@media (min-width: 760px) {
+  .foot-main { grid-template-columns: 1.4fr 1fr; gap: 4rem; padding: 3.5rem 2.5rem; max-width: 76rem; }
+}
+.foot-bar {
+  background: var(--footbar); color: #fff;
+  display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap;
+  padding: 1.5rem 1rem 2.5rem; font-size: 1.05rem;
+}
+.foot-bar a { color: #fff; text-decoration: none; display: inline-flex; }
+
+/* ---------- Programación 2026 (estructura del original) ---------- */
+.content.wide { max-width: 62rem; }
+.content .prog-intro { font: 700 clamp(1.35rem, 3vw, 1.9rem)/1.3 var(--text); text-align: center; margin: 0.5rem auto 1rem; max-width: 40rem; }
+.content h2.prog-day {
+  font: 700 clamp(1.9rem, 4.5vw, 2.5rem)/1.2 var(--text); text-align: center;
+  text-shadow: 3px 3px 0 rgba(10, 189, 240, 0.3), -3px -3px 0 rgba(254, 1, 1, 0.3);
+  margin: 3.5rem 0 1.5rem;
+}
+.evento { display: flow-root; border-bottom: 1px solid #000; padding: 2rem 0 2.2rem; }
+.evento figure { margin: 0 0 1.2rem; }
+.evento figure img { width: 100%; }
+.evento figcaption { font-size: 0.8rem; line-height: 1.35; margin-top: 0.4rem; color: #333; }
+.ev-invitado, .ev-hora { font: 700 clamp(1.2rem, 2.6vw, 1.45rem)/1.3 var(--text); margin: 0 !important; }
+.ev-hora { margin-bottom: 0.5rem !important; }
+.ev-title { font: italic 700 1.1rem/1.35 var(--text); margin: 0 !important; }
+.ev-body { margin-top: 1rem; }
+.ev-body p { font-size: 1.1rem; line-height: 1.45; margin: 0 0 1em; }
+.hibrido { clear: both; text-align: center; color: #1646bc; font-weight: 700; font-size: 1.3rem; line-height: 1.35; padding-top: 0.5rem; }
+.hibrido p { margin: 0 0 0.8rem; }
+.cocktail { text-align: center; border-bottom: 1px solid #000; padding: 2.5rem 0; }
+.cocktail h3 { font: italic 700 clamp(1.9rem, 4.5vw, 2.5rem)/1.2 var(--text) !important; margin: 0 0 0.6rem !important; }
+.cocktail-sub { font-weight: 700; font-size: 1.3rem; margin: 0 0 1.4rem !important; }
+.cocktail-link { font-weight: 700; font-size: 1.4rem; }
+.cocktail-link a { text-decoration: underline; }
+.cocktail img { width: 220px; margin: 1rem auto 0; }
+@media (min-width: 760px) {
+  .ev-body p { text-align: justify; hyphens: auto; }
+  .evento.img-left figure { float: left; width: 54%; margin: 0.3rem 2rem 1rem 0; }
+  .evento.img-right figure { float: right; width: 54%; margin: 0.3rem 0 1rem 2rem; }
+}
+@media (min-width: 760px) {
+  .evento.narrow figure { width: 38%; }
+}
+.evento.narrow figure { max-width: 26rem; }
+
+/* Negrilla reforzada: Questrial solo tiene un peso, así que se engrosa un poco el trazo */
+strong, b, .ev-invitado, .ev-hora, .ev-title, .prog-intro, .cocktail-sub, .cocktail-link, .hibrido,
+.home-left .date, .content h3 {
+  font-weight: 700; font-synthesis: weight style;
+  -webkit-text-stroke: 0.35px currentColor;
+}
+
+/* ---------- Instalaciones 2026 (estructura del original) ---------- */
+.artcut-banner { text-align: center; margin: 0.5rem 0 2.5rem; }
+.artcut-banner img { width: 100%; max-width: 30rem; margin: 0 auto; }
+.artcut-link { display: inline-block; font-size: 0.8rem; margin-top: 0.5rem; word-break: break-all; }
+.content h2.obra-title {
+  display: flex; align-items: center; gap: 1rem;
+  font: 600 clamp(1.5rem, 3.4vw, 1.9rem)/1.2 var(--title);
+  margin: 0 0 0.8rem; -webkit-text-stroke: 0;
+}
+.obra-title span { flex: 1; text-align: center; }
+.artcut-mini { width: 47px; height: auto; flex: none; }
+.obra.img-left .artcut-mini { order: 2; }
+.content .obra-label { font: italic 700 1rem/1.3 var(--text); margin: 0 !important; }
+.content .obra-autores { font: italic 700 1.1rem/1.4 var(--text); margin: 0 0 1.2rem !important; -webkit-text-stroke: 0.35px currentColor; }
+.content hr.obra-sep { border: 0; border-top: 1px solid #000; margin: 1.5rem 0; clear: both; }
+.content .prog-intro.full { max-width: 70%; font-size: clamp(1.1rem, 2.4vw, 1.6rem); }
+.artcut-banner img { max-width: 70%; width: 70%; }
+.content > .evento:last-child { border-bottom: 0; }
+@media (max-width: 759px) { .content .prog-intro.full { max-width: none; } .artcut-banner img { width: 100%; max-width: 100%; } }
+
+/* Ventana en directo (Parlamento de lo Vivo) */
+.live-embed { clear: both; padding-top: 1rem; }
+.live-label { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; margin: 0 0 0.6rem !important; }
+.live-dot { width: 10px; height: 10px; border-radius: 50%; background: #e0201b; animation: livepulse 1.6s infinite; }
+@keyframes livepulse { 50% { opacity: 0.25; } }
+.live-embed iframe { width: 100%; height: 70vh; min-height: 420px; max-height: 760px; border: 1px solid #000; display: block; background: #000; }
+.live-open { font-size: 0.95rem; margin-top: 0.6rem !important; text-align: right; }
+@media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
+.content .obra-title.left span { text-align: left; }
+.artcut-banner { margin-bottom: 4.5rem; }
+.evento.no-img { padding-bottom: 3.5rem; }
+.evento.no-img + .evento { padding-top: 3.5rem; }
+
+/* ---------- Edición 2024 y subpáginas (estructura del original) ---------- */
+.big-header { display: flex; align-items: flex-start; gap: 1.5rem; margin: 0 0 1.5rem; }
+.big-bar { flex: none; width: 18px; height: clamp(90px, 12vw, 150px); background: #000; }
+.content h1.big-title { font: 600 clamp(2.8rem, 8vw, 5.9rem)/1.05 var(--title); margin: 0.6rem 0 0.4rem; -webkit-text-stroke: 0; }
+.content .big-sub { font-size: clamp(1.2rem, 2.6vw, 1.95rem); margin: 0; }
+.big-sub .sup { font-size: 1.2em; }
+.big-header.center > div { flex: 1; text-align: center; padding-right: 18px; }
+.content .makers-sub { font: 700 clamp(1.1rem, 2.2vw, 1.5rem)/1.45 var(--text); margin: 0.5rem 0 0; }
+.makers-main { margin: 1rem auto 0; max-width: 24rem; }
+.makers-main img { width: 100%; }
+.content hr.head-rule { border: 0; border-top: 1px solid #000; margin: 2.5rem 0; }
+.plain-text { max-width: 46rem; margin: 0 auto; }
+.plain-text p { font-size: 1.125rem; }
+.content h2.caps-title { font: 700 clamp(1.3rem, 2.6vw, 1.6rem)/1.3 var(--text); text-transform: uppercase; margin: 3.5rem 0 1rem; }
+.content p.small { font-size: 0.95rem; line-height: 1.6; }
+.evento.plain { border-bottom: 0; }
+.content .ses-title { font: italic 700 1.35rem/1.3 var(--text); margin: 1.5rem 0 0.5rem; -webkit-text-stroke: 0.35px currentColor; }
+.content .ses-title.aforo { margin-top: 3rem; clear: both; }
+.content .small-intro { font-size: clamp(1.1rem, 2vw, 1.35rem); max-width: none; }
+.content h2.plain-day { text-shadow: none; font-size: clamp(1.6rem, 3.5vw, 2rem); }
+.prog-posters { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); margin-bottom: 2rem; }
+.prog-posters figure { margin: 0; }
+.evento figure.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.content .obra-autores.tight { margin: 0 !important; }
+.content .obra-extra { font-size: 1rem; margin: 0.4rem 0 1.2rem !important; }
+.obra .obra-autores.tight:last-of-type { margin-bottom: 1.2rem !important; }
+.sub-name { font-weight: 700; font-style: italic; -webkit-text-stroke: 0.35px currentColor; }
+.ev-body p:has(> .sub-name:only-child) { margin: 1.4rem 0 0.2rem; }
+@media (min-width: 760px) { .evento.e24 figure { width: 42% !important; } }

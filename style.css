@@ -336,3 +336,5 @@ strong, b, .ev-invitado, .ev-hora, .ev-title, .prog-intro, .cocktail-sub, .cockt
   .brand small { font-size: clamp(0.72rem, 3.3vw, 0.95rem); }
   .menu-toggle { flex: none; }
 }
+.obra-title .obra-subtitle { font-size: 0.7em; font-weight: 600; }
+.content .obra-nota { font-size: 0.82rem; color: var(--muted); margin: -0.9rem 0 1.2rem !important; }

@@ -371,3 +371,5 @@ strong, b, .ev-invitado, .ev-hora, .ev-title, .prog-intro, .cocktail-sub, .cockt
 /* ajustes de tamaño: texto rotulus +2pt sin cursiva; versión de bolsillo -2pt */
 .content .pub-desc { font-size: calc(0.92rem + 2pt); font-style: normal; }
 .content .pub-note { font-size: calc(1.125rem - 2pt); }
+.content .obra-ubicacion { font-size: 0.95rem; font-weight: 700; margin: 0 0 1.2rem !important; }
+.content .obra-ubicacion { text-align: center; font-weight: 700; -webkit-text-stroke: 0.35px currentColor; }
